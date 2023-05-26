@@ -1,3 +1,5 @@
+// variables
+
 var body = document.body;
 var timerEl = document.getElementById('countdown');
 var highscoretext = document.createElement("h1");
@@ -11,13 +13,19 @@ var startBtn = document.querySelector(".start-button");
 var scoreButton = document.querySelector(".score-button");
 var answers = document.createElement("section");
 var initials = document.createElement("input");
-initials.setAttribute("id", "inputs");
 var scoreReading = document.createElement("h2");
 var enterInitials = document.createElement("h2");
 var submitButton = document.createElement("button");
 var score = 0;
 var questionCount = 1;
 var timeLeft = 30;
+
+//general style guidelines for quiz
+body.setAttribute("style", "margin:auto; width:75%; text-align:center; display: flex; flex-direction: column");
+
+initials.setAttribute("id", "inputs"); //set class for initials input for query
+
+//initial text values for quiz
 enterInitials.textContent = "Enter Your Initials";
 submitButton.textContent = "Submit";
 answer1btn.textContent = "Boolean";
@@ -25,9 +33,9 @@ answer2btn.textContent = "String";
 answer3btn.textContent = "number";
 answer4btn.textContent = "array";
 question.textContent = "What type of variable is either True or False?";
-body.setAttribute("style", "margin:auto; width:75%; text-align:center; display: flex; flex-direction: column");
 
 
+//used countdown function from in class activity
   // Timer that counts down from 30
   function countdown() {
     
@@ -54,6 +62,8 @@ body.setAttribute("style", "margin:auto; width:75%; text-align:center; display: 
     }, 1000);
   }
 
+
+//function runs when game is over
 function endGame() {
     timeLeft = 0;
     timerEl.remove();
@@ -68,16 +78,20 @@ function endGame() {
 
 }
 
+
+//function subtracts from timeleft if answer is incorrect
 function wrongAnswer() {
     timeLeft = timeLeft - 5;
     questionCount++;
 }
 
+//function awards 10 points if answer is correct
 function rightAnswer() {
     score = score + 10;
     questionCount++;
 }
 
+//function renders second question
 function question2 () {
     answers.remove();
     question.textContent = "What command do you use to add a value to an array?";
@@ -92,6 +106,7 @@ function question2 () {
     answer4btn.textContent = "setAttribute";
 }
 
+//function creates 3rd question
 function question3 () {
     answers.remove();
     body.appendChild(answers);
@@ -106,6 +121,8 @@ function question3 () {
     answer4btn.textContent = "Python";
 }
 
+
+//function creates 4th question
 function question4 () {
     answers.remove();
     body.appendChild(answers);
@@ -119,6 +136,7 @@ function question4 () {
     answer3btn.textContent = "==";
     answer4btn.textContent = "===";
 }
+
 
 startBtn.addEventListener("click", function() {
     scoreButton.remove();
@@ -137,6 +155,8 @@ startBtn.addEventListener("click", function() {
   }
   );
 
+  //event listener for correct answer button
+  //all answer buttons check for which question should be rendered next
   answer1btn.addEventListener("click", function(){
     rightAnswer();
     if (questionCount == 2) {
