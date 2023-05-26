@@ -24,3 +24,13 @@ When the game is over the user is prompted to enter his/her initials. The initia
 ![alt text](lastscore.png)
 
 # Links
+
+repo
+https://github.com/eqmccullough/quiz-game
+
+github live page
+https://github.com/eqmccullough/quiz-game/settings/pages
+
+# References
+
+I completed this assignment 100% by myself however I referenced the class material from unit 4 extensively and used the countdown function directly from an in class activity.
